@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row, Image, Button, Container, Col, Dropdown, Badge} from 'react-bootstrap';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Styles = styled.div`
     .list {
@@ -38,23 +40,31 @@ const Styles = styled.div`
         display: flex;
         font-size: 18px;
         box-shadow: 0 0px 7px 0px #b9b6b6;
-        /* margin-right: 50px; */
         transition: all 0.3s;
+    }
+    .btn-back {
+        float: left;
+        color: #b3b3b3 !important;
+        font-size: 16px;
     }
 `;
 
 const Header = (props) => {
     const auth = props.auth
+    const flagHeader = props.flagHeader
     return (
-        <Styles>
+        <Styles className="non-background">
         {   //Chưa login
             auth && 
-            <Row className="p-3">
+            <Row className="p-3 m-0">
                 <Col xs={12} md={3} className="text-center">
-
+                    {
+                        flagHeader &&
+                        <a href="/" class="btn-back"><img src="https://testbank.vn/libs/images/back.png"/> Trang chủ</a>
+                    }
                 </Col>
                 <Col xs={12} md={5} className="text-center mb-1 p-2">
-                    <Image fluid src='https://testbank.vn/libs/images/logo.png' />
+                    <a href="/"><Image fluid src='https://testbank.vn/libs/images/logo.png' /></a>
                 </Col>
                 <Col xs={12} md={4} className="text-center mb-1">
                     <ul className="list">
@@ -70,14 +80,14 @@ const Header = (props) => {
         }
         {   //Đã login
             !auth && 
-            <Row  className="p-3" >
-                <Col xs={12} md={8} className="text-center mb-1 p-2">
+            <Row  className="p-3 m-0" >
+                <Col xs={12} lg={8} className="text-center mb-1 p-2">
                     <a href="/"><Image fluid src='https://testbank.vn/libs/images/logo.png' /></a>
                 </Col>
-                <Col xs={12} md={4} className="text-center mb-1">
+                <Col xs={12} lg={4} className="text-center mb-1">
                     <ul className="list">
                         <li>
-                            <a className="create_threads" href="#">Tạo đề </a>
+                            <a className="create_threads" href="#">Tạo đề</a>
                         </li>
                         <li>
                             <Dropdown className="ml-2 mr-1">
@@ -90,23 +100,32 @@ const Header = (props) => {
                                 <Dropdown.Menu>
                                     <Dropdown.Header>Welcome, email@example.com</Dropdown.Header>
                                     <Dropdown.Item href="#">
-                                        Bộ sưu tập đã tạo
+                                        Bộ sưu tập đã tạo {' '}
                                         <Badge variant="secondary">1</Badge>
                                     </Dropdown.Item>
                                     <Dropdown.Item href="#">
-                                        Đề thi đã tạo
+                                        Đề thi đã tạo{' '}
                                         <Badge variant="secondary">4</Badge>
                                     </Dropdown.Item>
                                     <Dropdown.Divider />
                                     <Dropdown.Item href="#">
-                                        Thông tin cá nhân
-                                        
+                                        Thông tin cá nhân{' '}
+                                        <FontAwesomeIcon icon={faUser}/>
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#">
+                                        Thông báo{' '}
+                                        <Badge variant="secondary">0</Badge>
+                                    </Dropdown.Item>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item href="#">
+                                        Đăng xuất{' '}
+                                        <FontAwesomeIcon icon={faSignOutAlt}/>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </li>
                         <li>
-                            <span class="notification">
+                            <span className="notification">
                                 <a href="#">
                                     <Image fluid src="https://testbank.vn/libs/images/ic_notifi.png"/>
                                 </a> 

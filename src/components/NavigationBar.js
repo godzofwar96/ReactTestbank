@@ -1,63 +1,116 @@
 import React from 'react'
-import { Nav, Navbar, NavLink, NavItem, NavDropdown, Image , Form, FormControl, Button , Row } from 'react-bootstrap';
+import { Nav, Navbar, NavLink, NavItem, NavDropdown, Image ,Dropdown, Form, FormControl, Button , Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Styles =  styled.div`
-    .navbar {
-        background-color: #33ccff;
-    }
     .navbar-brand, .navbar-nav .nav-link, .dropdown {
-        color: #222;
         font-weight: bold;
+        color: #5b6770;
+        font-size: 18px;
+        padding: 0px 20px;
 
         &:hover {
-            color: #fff;
+            color: #F00024;
         }
-    }
-    .logo {
-        width: 45px;
-        height: 45px;
     }
 `;
 const NavigationBar = () => {
     return (
-        <Styles>
-            <Navbar expand="xl">
-                <Navbar.Brand className="mr-auto" href="/">
-                    <Image src='https://s1.uphinh.org/2020/09/21/logo.gif' className="logo"/>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" ></Navbar.Toggle>
-                <Navbar.Collapse id="basic-navbar-nav">
+        <Styles className="non-background">
+            <Navbar expand="xl" className="p-4">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" >
+                </Navbar.Toggle>
+                <Navbar.Collapse className="text-center" id="basic-navbar-nav">
                     <Nav className="mr-auto ml-auto">
-                        <NavItem>
-                            <NavLink href="/">TRANG CHỦ</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/about">GIỚI THIỆU</NavLink>
-                        </NavItem>
-                        
-                        <NavDropdown title="DỊCH VỤ" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#">Tư vấn nhân sự</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Hướng dẫn và đào tạo</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Công nghệ hỗ trợ</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#">Yêu cầu đào tạo</NavDropdown.Item>
-                        </NavDropdown>
-                        <NavItem>
-                            <NavLink href="/">HỆ THỐNG KHÓA HỌC</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/contact">LIÊN HỆ</NavLink>
-                        </NavItem>
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>
+                                <Image src="https://testbank.vn/libs/images/ic_menu.png" fluid />
+                                DANH MỤC
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>
+                                    <a href="#">Thi THPT Quốc gia</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 5</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 6</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 7</a>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>Tiểu học - THCS - THPT</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>
+                                    <a href="#">Thi THPT Quốc gia</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 5</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 6</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 7</a>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>Đề thi tuyển dụng</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>
+                                    <a href="#">Thi THPT Quốc gia</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 5</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 6</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 7</a>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>Đại học - Cao Đẳng</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>
+                                    <a href="#">Thi THPT Quốc gia</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 5</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 6</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 7</a>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>Ngoại Ngữ</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>
+                                    <a href="#">Thi THPT Quốc gia</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 5</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 6</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <a href="#">Lớp 7</a>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="warning" type="submit"><b>Tìm kiếm</b></Button>
-                    </Form>
-                    <Form inline className="ml-auto">
-                        <Button className="mr-1" variant="primary"><b>Đăng nhập</b></Button> 
-                        <Button className="ml-1" variant="success"><b>Đăng ký</b></Button>
-                    </Form>
                 </Navbar.Collapse>
             </Navbar>
         </Styles>
