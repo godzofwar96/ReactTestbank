@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav, Navbar, NavLink, NavItem, NavDropdown, Image ,Dropdown, Form, FormControl, Button , Row } from 'react-bootstrap';
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 
 const Styles =  styled.div`
     .navbar-brand, .navbar-nav .nav-link, .dropdown {
@@ -15,6 +16,8 @@ const Styles =  styled.div`
     }
 `;
 const NavigationBar = () => {
+
+    const isWindow = useMediaQuery({ minWidth: 1200 })
     return (
         <Styles className="non-background">
             <Navbar expand="xl" className="p-4">
@@ -22,26 +25,29 @@ const NavigationBar = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse className="text-center" id="basic-navbar-nav">
                     <Nav className="mr-auto ml-auto">
-                        <Dropdown as={NavItem}>
+                        {
+                            isWindow && 
+                            <Dropdown as={NavItem}>
                             <Dropdown.Toggle as={NavLink}>
                                 <Image src="https://testbank.vn/libs/images/ic_menu.png" fluid />
                                 DANH MỤC
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item>
-                                    <a href="#">Thi THPT Quốc gia</a>
+                                    <a href="#">Tiểu học - THCS - THPT</a>
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    <a href="#">Lớp 5</a>
+                                    <a href="#">Đề thi tuyển dụng</a>
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    <a href="#">Lớp 6</a>
+                                    <a href="#">Đại học - Cao đẳng</a>
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    <a href="#">Lớp 7</a>
+                                    <a href="#">Ngoại ngữ</a>
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+                        }
                         <Dropdown as={NavItem}>
                             <Dropdown.Toggle as={NavLink}>Tiểu học - THCS - THPT</Dropdown.Toggle>
                             <Dropdown.Menu>
