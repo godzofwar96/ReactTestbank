@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Image, Button, Container, Col, Dropdown, Badge} from 'react-bootstrap';
+import { Row, Image, Col, Dropdown, Badge} from 'react-bootstrap';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'

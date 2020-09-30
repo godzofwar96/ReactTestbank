@@ -19,7 +19,7 @@ const Styles = styled.div`
         display: flex;
     }
     .contact-top {
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .map-add {
         height: 56px;
